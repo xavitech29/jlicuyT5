@@ -9,7 +9,7 @@ public partial class vPerson : ContentPage
         //RefreshPicker();
     }
 
-    //Picker
+ 
 
     protected override void OnAppearing()
     {
@@ -42,38 +42,6 @@ public partial class vPerson : ContentPage
         }
     }
 
-
-
-    //Fin Picker
-    /* private void btnInsertar_Clicked(object sender, EventArgs e)
-     {
-         lblStatus.Text = "";
-         App.personRepo.AddNewPerson(txtName.Text);
-         lblStatus.Text = App.personRepo.StatusMessage;
-         RefreshPicker();  // Actualiza el Picker
-     }*/
-
-    /* private async void btnInsertar_Clicked(object sender, EventArgs e)
-     {
-         lblStatus.Text = "";
-         try
-         {
-             App.personRepo.AddNewPerson(txtName.Text);  // Asumiendo que este método es síncrono
-             lblStatus.Text = App.personRepo.StatusMessage;
-
-             // Asumiendo que RefreshPicker es síncrono
-             RefreshPicker();
-
-             // Muestra un mensaje de éxito
-             await DisplayAlert("Éxito", lblStatus.Text, "OK");
-         }
-         catch (Exception ex)
-         {
-             // Muestra un mensaje de error
-             await DisplayAlert("Error", "Error al insertar persona: " + ex.Message, "OK");
-         }
-     }*/
-
     private async void btnInsertar_Clicked(object sender, EventArgs e)
     {
         App.personRepo.AddNewPerson(txtName.Text);
@@ -90,18 +58,6 @@ public partial class vPerson : ContentPage
 
         RefreshPicker();
     }
-
-
-
-
-    /* private void btnObtener_Clicked(object sender, EventArgs e)
-     {
-         lblStatus.Text = "";
-         List<Person> people = App.personRepo.getAllPeople();
-         listPerson.ItemsSource = people;
-         lblStatus.Text = App.personRepo.StatusMessage;
-
-     }*/
 
     private void btnObtener_Clicked(object sender, EventArgs e)
     {
@@ -123,24 +79,6 @@ public partial class vPerson : ContentPage
         }
     }
 
-
-    /*private void btnActualizar_Clicked(object sender, EventArgs e)
-    {
-        lblStatus.Text = "";
-        if (int.TryParse(txtId.Text, out int id))
-        {
-            string newName = txtNewName.Text;
-            App.personRepo.UpdatePerson(id, newName);
-            lblStatus.Text = App.personRepo.StatusMessage;
-            RefreshList(); // Actualiza la lista y el picker
-            RefreshPicker();
-        }
-        else
-        {
-            lblStatus.Text = "ID inválido. Por favor, seleccione un registro válido.";
-        }
-    }*/
-
     private async void btnActualizar_Clicked(object sender, EventArgs e)
     {
         if (int.TryParse(txtId.Text, out int id))
@@ -160,26 +98,6 @@ public partial class vPerson : ContentPage
         }
     }
 
-
-
-    /*private void btnEliminar_Clicked(object sender, EventArgs e)
-    {
-        lblStatus.Text = "";
-        if (int.TryParse(txtId.Text, out int id))
-        {
-            App.personRepo.DeletePerson(id);
-            lblStatus.Text = App.personRepo.StatusMessage;
-            RefreshList(); // Actualiza la lista y el picker
-            RefreshPicker();
-        }
-        else
-        {
-            lblStatus.Text = "ID inválido. Por favor, seleccione un registro válido.";
-        }
-    }*/
-
-
-
     private async void btnEliminar_Clicked(object sender, EventArgs e)
     {
         if (int.TryParse(txtId.Text, out int id))
@@ -187,7 +105,7 @@ public partial class vPerson : ContentPage
             App.personRepo.DeletePerson(id);
             string message = App.personRepo.StatusMessage;
 
-            // Asumimos que cualquier mensaje es relevante y debe ser mostrado.
+            
             await DisplayAlert("Resultado", message, "OK");
 
             // Refrescamos la lista y el picker siempre, independientemente del resultado.
@@ -199,8 +117,6 @@ public partial class vPerson : ContentPage
             await DisplayAlert("Error", "ID inválido. Por favor, seleccione un registro válido.", "OK");
         }
     }
-
-
 
     private void RefreshList()
     {
