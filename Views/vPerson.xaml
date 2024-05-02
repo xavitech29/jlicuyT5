@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jlicuyT5.Views.vPerson"
+             Title="vPerson">
+    <ScrollView>
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="CRUD MAUI"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="24"/>
+
+        
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text="Nombre"
+                       FontSize="15"
+                       Grid.Row="0"
+                      Grid.Column="0"
+                       />
+            
+                <Entry x:Name="txtName"
+       Placeholder="Ingrese Nombre"
+       Grid.Row="0"
+        Grid.Column="1"
+       
+       />
+                <Button x:Name="btnInsertar"
+                    Text="Insertar"
+                    Clicked="btnInsertar_Clicked"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    />
+
+            <!--<Label x:Name="lblStatus"
+                   Grid.Row="2"
+                    Grid.Column="2"
+                   TextColor="Blue"
+                   />-->
+
+            <Button x:Name="btnObtener"
+         Text="Obtener"
+         Clicked="btnObtener_Clicked"
+         Grid.Row="3"
+         Grid.Column="2"
+         />
+
+                <Label Text="Lista de Personas"
+       FontSize="15"
+       Grid.Row="4"
+      Grid.Column="0"
+       />
+                <CollectionView x:Name="listPerson"
+                 Grid.Row="4"
+                 Grid.Column="2"
+                 >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}" Grid.Column="0"/>
+                                <Label Text="{Binding Name}" Grid.Column="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <!--Actualizar-->
+
+            <Button x:Name="btnActualizar"
+        Text="Actualizar"
+        Clicked="btnActualizar_Clicked"
+        Grid.Row="5"
+        Grid.Column="2"
+        />
+            <!--Eliminar-->
+        <Button x:Name="btnEliminar"
+        Text="Eliminar"
+        Clicked="btnEliminar_Clicked"
+        Grid.Row="6"
+        Grid.Column="2"
+        />
+
+                <!--Picker Name-->
+                <Picker x:Name="namePicker"
+            Title="Seleccione una persona"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center"
+            Grid.Row="5"
+            Grid.Column="1"
+            SelectedIndexChanged="namePicker_SelectedIndexChanged"
+            />
+                <!--Fin-->
+
+                <!--Id Actualizar o Eliminar-->
+
+      <Entry x:Name="txtId"
+       Placeholder="ID"
+       Grid.Row="8"
+       Grid.Column="1"           
+       IsReadOnly="True"
+       />
+       
+      <!--Nuevo Nombre Actualizar o Eliminar-->
+            
+       <Entry x:Name="txtNewName"
+       Placeholder="Nuevo Nombre"
+       Grid.Row="9"
+       Grid.Column="1"
+       />
+         
+            
+
+        </Grid>
+
+    </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
