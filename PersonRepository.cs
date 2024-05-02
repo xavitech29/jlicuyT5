@@ -29,27 +29,6 @@ namespace jlicuyT5
             _dbPath = dbPath;
         }
 
-        /* public void AddNewPerson(string name)
-         {
-             int result = 0;
-
-             try
-             {
-                 Init();
-                 if (string.IsNullOrEmpty(name))
-                     throw new Exception("Nombre es requerido");
-                 Person person = new() { Name = name };
-                 result = conn.Insert(person);
-                 StatusMessage = string.Format("Se insertó una persona", result, name);
-             }
-             catch (Exception ex)
-             {
-
-                 StatusMessage = string.Format("No se insertó una persona", name, ex.Message);
-
-             }
-         }*/
-
         public void AddNewPerson(string name)
         {
             try
